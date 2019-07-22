@@ -1,4 +1,4 @@
-# Zombies Swarm 2.4 for CS2D
+# Zombie Swarm 2.4 for CS2D
 Zombie Swarm 2.4 LUA Modification for CS2D
 It also contains full pack of GFX & SFX
 
