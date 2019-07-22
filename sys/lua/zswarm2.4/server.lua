@@ -2,7 +2,7 @@ dofile("sys/lua/zswarm2.4/zs_config.cfg")
 dofile("sys/lua/zswarm2.4/zs_lightning.lua")
 dofile("sys/lua/zswarm2.4/zs_main_functions.lua")
 
-function konumfarki(fx,fy,tx,ty)
+--[[function konumfarki(fx,fy,tx,ty)
 return math.sqrt((fx-tx)^2+(fy-ty)^2)
 end
 
@@ -12,7 +12,7 @@ function Sound3(dosya,x,y,tiled)
 			parse('sv_sound2 '..id..' '..dosya)
 		end
 	end
-end
+end ]]--
 
 extra = {}
 extra.dmg = {}
@@ -20,9 +20,9 @@ extra.dmg = {}
 addhook("hit","pain")
 function pain(id,source,wpn,hp)
 if (player(source,"team")==2) and (player(id,"team")==1) then
-Sound3("zombie_swarm2.4/zombie_pain"..math.random(1,2)..".wav",player(id,"x"),player(id,"y"),256)
+parse("sv_soundpos \"zombie_swarm2.4/zombie_pain"..math.random(1,2)..".wav\" "..player(id,"x").." "..player(id,"y").."")
 elseif (player(source,"team")==1) and (player(id,"team")==2) then
-Sound3("zombie_swarm2.4/human_pain"..math.random(1,2)..".wav",player(id,"x"),player(id,"y"),256)
+Sound3("sv_soundpos \"zombie_swarm2.4/human_pain"..math.random(1,2)..".wav\" "..player(id,"x").." "..player(id,"y").."")
 end
 if player(id,"team") == 1 then
     if extra.dmg[id] > 0 then
@@ -54,7 +54,7 @@ function model(id)
 	  strip(id,2)
 	  strip(id,50)
 	  get_item(id,59)
-	  extra.dmg[id] = 250 -- EXTRA CAN BURADA <<
+	  extra.dmg[id] = 250
 	  		parse('hudtxt2 '..id..' 1 "©255255255Extra Health: '..extra.dmg[id]..' " 20 430')
       return "78,84"
    else
@@ -192,7 +192,7 @@ end
 end
 
 function buy(id,mon,eq,nm)
-	Sound3("items/pickup.wav",player(id,"x"),player(id,"y"),64)
+	parse("sv_soundpos \"items/pickup.wav\" "..player(id,"x").." "..player(id,"y").."")
 	parse("equip "..id.." "..eq) 
 	parse("setweapon "..id.." "..eq)
 	parse("setmoney "..id.." "..player(id,"money")-mon)
