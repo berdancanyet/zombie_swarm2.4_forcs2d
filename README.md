@@ -1,6 +1,5 @@
 # Zombie Swarm 2.4 for CS2D
-Zombie Swarm 2.4 LUA Modification for CS2D
-It also contains full pack of GFX & SFX
+A complete game mode based on zombie theme for CS2D that also contains full pack of GFX and SFX.
 
 ## Installation:
 * Copy the files and paste in main cs2d directory.
