@@ -1,6 +1,5 @@
---[[ ZS 2.4 lightning system by Berdan Can Yetkiner ]]--
-local play = parse
-local t = timer
+--[[ ZS 2.4 lightning system by BcY ]]--
+local play, t = parse, timer
 
 addhook("startround","round")
 function round()
